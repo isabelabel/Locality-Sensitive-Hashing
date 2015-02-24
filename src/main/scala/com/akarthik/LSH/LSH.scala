@@ -140,8 +140,9 @@ class LSH(shingleLength: Int = 3,
                                                                                                     // Array[Double] => pedaco do min hash
                                                                                                     // cada linha desse Map representa um documento
       val band = new Band()
-        subArray.foreach(array => band.hash(array)) //mapeia o pedaco do min hash pro bucket (ver comentarios do metodo 'hash')
-        band // cada band representa um pedaco do minHash, sendo que cada minHash eh mapeado pra um bucket geral
+        subArray.foreach(array => band.hash(array)) // mapeia o pedaco do min hash pro bucket (ver comentarios do metodo 'hash')
+        band // cada band representa um pedaco do minHash. Ex: band1 = band referente a primeira parte do minHash para todos os documentos
+            // cada band tem seus buckets, entao os buckets da band1 sao referentes a primeira parte do minHash de cada documento
       }
 
     mBands = bands
